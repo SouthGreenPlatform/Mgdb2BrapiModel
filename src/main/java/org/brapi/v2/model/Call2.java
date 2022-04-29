@@ -38,7 +38,7 @@ public class Call2   {
 
   @JsonProperty("genotypeFields")
   @Valid
-  private List<GenotypeField> genotypeFields = null;
+  private List<GenotypeField> genotypeFields = new ArrayList<>();
 
   @JsonProperty("phaseset")
   private String phaseset = null;
@@ -48,6 +48,12 @@ public class Call2   {
 
   @JsonProperty("variantName")
   private String variantName = null;
+  
+  @JsonProperty("refAllele")
+  private String refAllele = null;
+  
+  @JsonProperty("altAllele")
+  private String altAllele = null;
   
   @JsonProperty("variantSetDbId")
   private String variantSetDbId = null;
@@ -269,4 +275,27 @@ public class Call2   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+    public void addGenotypeField(GenotypeField gf) {
+        genotypeFields.add(gf);
+    }
+
+    public String getRefAllele() {
+        return refAllele;
+    }
+
+    public void setRefAllele(String refAllele) {
+        this.refAllele = refAllele;
+    }
+
+    public String getAltAllele() {
+        return altAllele;
+    }
+
+    public void setAltAllele(String altAllele) {
+        this.altAllele = altAllele;
+    }
+
+    
+    
 }

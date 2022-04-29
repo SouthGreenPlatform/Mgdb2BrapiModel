@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author boizet
  */
-class GenotypeField {
+public class GenotypeField {
     
     @JsonProperty("fieldAbbreviation")
     private String fieldAbbreviation = null;

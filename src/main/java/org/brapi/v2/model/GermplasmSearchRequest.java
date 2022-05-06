@@ -1,37 +1,65 @@
 package org.brapi.v2.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+
 
 /**
  * GermplasmSearchRequest
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2019-11-20T14:32:35.470Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-05-06T07:15:28.638Z[GMT]")
+
+
 public class GermplasmSearchRequest   {
   @JsonProperty("accessionNumbers")
   @Valid
   private List<String> accessionNumbers = null;
 
+  @JsonProperty("binomialNames")
+  @Valid
+  private List<String> binomialNames = null;
+
+  @JsonProperty("collections")
+  @Valid
+  private List<String> collections = null;
+
   @JsonProperty("commonCropNames")
   @Valid
   private List<String> commonCropNames = null;
 
+  @JsonProperty("externalReferenceIDs")
+  @Valid
+  private List<String> externalReferenceIDs = null;
+
+  @JsonProperty("externalReferenceIds")
+  @Valid
+  private List<String> externalReferenceIds = null;
+
+  @JsonProperty("externalReferenceSources")
+  @Valid
+  private List<String> externalReferenceSources = null;
+
+  @JsonProperty("familyCodes")
+  @Valid
+  private List<String> familyCodes = null;
+
+  @JsonProperty("genus")
+  @Valid
+  private List<String> genus = null;
+
   @JsonProperty("germplasmDbIds")
   @Valid
   private List<String> germplasmDbIds = null;
-
-  @JsonProperty("germplasmGenus")
-  @Valid
-  private List<String> germplasmGenus = null;
 
   @JsonProperty("germplasmNames")
   @Valid
@@ -41,9 +69,15 @@ public class GermplasmSearchRequest   {
   @Valid
   private List<String> germplasmPUIs = null;
 
-  @JsonProperty("germplasmSpecies")
+  @JsonProperty("instituteCodes")
   @Valid
-  private List<String> germplasmSpecies = null;
+  private List<String> instituteCodes = null;
+
+  @JsonProperty("page")
+  private Integer page = null;
+
+  @JsonProperty("pageSize")
+  private Integer pageSize = null;
 
   @JsonProperty("parentDbIds")
   @Valid
@@ -53,23 +87,37 @@ public class GermplasmSearchRequest   {
   @Valid
   private List<String> progenyDbIds = null;
 
+  @JsonProperty("programDbIds")
+  @Valid
+  private List<String> programDbIds = null;
+
+  @JsonProperty("programNames")
+  @Valid
+  private List<String> programNames = null;
+
+  @JsonProperty("species")
+  @Valid
+  private List<String> species = null;
+
   @JsonProperty("studyDbIds")
   @Valid
   private List<String> studyDbIds = null;
+
+  @JsonProperty("studyNames")
+  @Valid
+  private List<String> studyNames = null;
 
   @JsonProperty("synonyms")
   @Valid
   private List<String> synonyms = null;
 
-  @JsonProperty("xrefs")
+  @JsonProperty("trialDbIds")
   @Valid
-  private List<String> xrefs = null;
-  
-  @JsonProperty("pageSize")
-  private Integer pageSize = null;
+  private List<String> trialDbIds = null;
 
-  @JsonProperty("page")
-  private Integer page = null;
+  @JsonProperty("trialNames")
+  @Valid
+  private List<String> trialNames = null;
 
   public GermplasmSearchRequest accessionNumbers(List<String> accessionNumbers) {
     this.accessionNumbers = accessionNumbers;
@@ -87,8 +135,8 @@ public class GermplasmSearchRequest   {
   /**
    * List unique identifiers for accessions within a genebank
    * @return accessionNumbers
-  **/
-  @ApiModelProperty(example = "[\"A0000003\",\"A0000477\"]", value = "List unique identifiers for accessions within a genebank")
+   **/
+  @Schema(example = "[\"A0000003\",\"A0000477\"]", description = "List unique identifiers for accessions within a genebank")
   
     public List<String> getAccessionNumbers() {
     return accessionNumbers;
@@ -96,6 +144,60 @@ public class GermplasmSearchRequest   {
 
   public void setAccessionNumbers(List<String> accessionNumbers) {
     this.accessionNumbers = accessionNumbers;
+  }
+
+  public GermplasmSearchRequest binomialNames(List<String> binomialNames) {
+    this.binomialNames = binomialNames;
+    return this;
+  }
+
+  public GermplasmSearchRequest addBinomialNamesItem(String binomialNamesItem) {
+    if (this.binomialNames == null) {
+      this.binomialNames = new ArrayList<String>();
+    }
+    this.binomialNames.add(binomialNamesItem);
+    return this;
+  }
+
+  /**
+   * List of the full binomial name (scientific name) to identify a germplasm
+   * @return binomialNames
+   **/
+  @Schema(example = "[\"Aspergillus fructus\",\"Zea mays\"]", description = "List of the full binomial name (scientific name) to identify a germplasm")
+  
+    public List<String> getBinomialNames() {
+    return binomialNames;
+  }
+
+  public void setBinomialNames(List<String> binomialNames) {
+    this.binomialNames = binomialNames;
+  }
+
+  public GermplasmSearchRequest collections(List<String> collections) {
+    this.collections = collections;
+    return this;
+  }
+
+  public GermplasmSearchRequest addCollectionsItem(String collectionsItem) {
+    if (this.collections == null) {
+      this.collections = new ArrayList<String>();
+    }
+    this.collections.add(collectionsItem);
+    return this;
+  }
+
+  /**
+   * A specific panel/collection/population name this germplasm belongs to.
+   * @return collections
+   **/
+  @Schema(example = "[\"RDP1\",\"MDP1\"]", description = "A specific panel/collection/population name this germplasm belongs to.")
+  
+    public List<String> getCollections() {
+    return collections;
+  }
+
+  public void setCollections(List<String> collections) {
+    this.collections = collections;
   }
 
   public GermplasmSearchRequest commonCropNames(List<String> commonCropNames) {
@@ -112,10 +214,10 @@ public class GermplasmSearchRequest   {
   }
 
   /**
-   * List crops to search by
+   * The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.
    * @return commonCropNames
-  **/
-  @ApiModelProperty(example = "[\"Tomatillo\",\"Paw Paw\"]", value = "List crops to search by")
+   **/
+  @Schema(example = "[\"Tomatillo\",\"Paw Paw\"]", description = "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.")
   
     public List<String> getCommonCropNames() {
     return commonCropNames;
@@ -123,6 +225,141 @@ public class GermplasmSearchRequest   {
 
   public void setCommonCropNames(List<String> commonCropNames) {
     this.commonCropNames = commonCropNames;
+  }
+
+  public GermplasmSearchRequest externalReferenceIDs(List<String> externalReferenceIDs) {
+    this.externalReferenceIDs = externalReferenceIDs;
+    return this;
+  }
+
+  public GermplasmSearchRequest addExternalReferenceIDsItem(String externalReferenceIDsItem) {
+    if (this.externalReferenceIDs == null) {
+      this.externalReferenceIDs = new ArrayList<String>();
+    }
+    this.externalReferenceIDs.add(externalReferenceIDsItem);
+    return this;
+  }
+
+  /**
+   * **Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
+   * @return externalReferenceIDs
+   **/
+  @Schema(example = "[\"doi:10.155454/12341234\",\"14a19841\"]", description = "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)")
+  
+    public List<String> getExternalReferenceIDs() {
+    return externalReferenceIDs;
+  }
+
+  public void setExternalReferenceIDs(List<String> externalReferenceIDs) {
+    this.externalReferenceIDs = externalReferenceIDs;
+  }
+
+  public GermplasmSearchRequest externalReferenceIds(List<String> externalReferenceIds) {
+    this.externalReferenceIds = externalReferenceIds;
+    return this;
+  }
+
+  public GermplasmSearchRequest addExternalReferenceIdsItem(String externalReferenceIdsItem) {
+    if (this.externalReferenceIds == null) {
+      this.externalReferenceIds = new ArrayList<String>();
+    }
+    this.externalReferenceIds.add(externalReferenceIdsItem);
+    return this;
+  }
+
+  /**
+   * List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
+   * @return externalReferenceIds
+   **/
+  @Schema(example = "[\"doi:10.155454/12341234\",\"14a19841\"]", description = "List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)")
+  
+    public List<String> getExternalReferenceIds() {
+    return externalReferenceIds;
+  }
+
+  public void setExternalReferenceIds(List<String> externalReferenceIds) {
+    this.externalReferenceIds = externalReferenceIds;
+  }
+
+  public GermplasmSearchRequest externalReferenceSources(List<String> externalReferenceSources) {
+    this.externalReferenceSources = externalReferenceSources;
+    return this;
+  }
+
+  public GermplasmSearchRequest addExternalReferenceSourcesItem(String externalReferenceSourcesItem) {
+    if (this.externalReferenceSources == null) {
+      this.externalReferenceSources = new ArrayList<String>();
+    }
+    this.externalReferenceSources.add(externalReferenceSourcesItem);
+    return this;
+  }
+
+  /**
+   * List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)
+   * @return externalReferenceSources
+   **/
+  @Schema(example = "[\"DOI\",\"Field App Name\"]", description = "List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)")
+  
+    public List<String> getExternalReferenceSources() {
+    return externalReferenceSources;
+  }
+
+  public void setExternalReferenceSources(List<String> externalReferenceSources) {
+    this.externalReferenceSources = externalReferenceSources;
+  }
+
+  public GermplasmSearchRequest familyCodes(List<String> familyCodes) {
+    this.familyCodes = familyCodes;
+    return this;
+  }
+
+  public GermplasmSearchRequest addFamilyCodesItem(String familyCodesItem) {
+    if (this.familyCodes == null) {
+      this.familyCodes = new ArrayList<String>();
+    }
+    this.familyCodes.add(familyCodesItem);
+    return this;
+  }
+
+  /**
+   * A familyCode representing the family this germplasm belongs to.
+   * @return familyCodes
+   **/
+  @Schema(example = "[\"fa000203\",\"fa009965\"]", description = "A familyCode representing the family this germplasm belongs to.")
+  
+    public List<String> getFamilyCodes() {
+    return familyCodes;
+  }
+
+  public void setFamilyCodes(List<String> familyCodes) {
+    this.familyCodes = familyCodes;
+  }
+
+  public GermplasmSearchRequest genus(List<String> genus) {
+    this.genus = genus;
+    return this;
+  }
+
+  public GermplasmSearchRequest addGenusItem(String genusItem) {
+    if (this.genus == null) {
+      this.genus = new ArrayList<String>();
+    }
+    this.genus.add(genusItem);
+    return this;
+  }
+
+  /**
+   * List of Genus names to identify germplasm
+   * @return genus
+   **/
+  @Schema(example = "[\"Aspergillus\",\"Zea\"]", description = "List of Genus names to identify germplasm")
+  
+    public List<String> getGenus() {
+    return genus;
+  }
+
+  public void setGenus(List<String> genus) {
+    this.genus = genus;
   }
 
   public GermplasmSearchRequest germplasmDbIds(List<String> germplasmDbIds) {
@@ -139,10 +376,10 @@ public class GermplasmSearchRequest   {
   }
 
   /**
-   * List of IDs which uniquely identify germplasm
+   * List of IDs which uniquely identify germplasm to search for
    * @return germplasmDbIds
-  **/
-  @ApiModelProperty(example = "[\"e9c6edd7\",\"1b1df4a6\"]", value = "List of IDs which uniquely identify germplasm")
+   **/
+  @Schema(example = "[\"e9c6edd7\",\"1b1df4a6\"]", description = "List of IDs which uniquely identify germplasm to search for")
   
     public List<String> getGermplasmDbIds() {
     return germplasmDbIds;
@@ -150,33 +387,6 @@ public class GermplasmSearchRequest   {
 
   public void setGermplasmDbIds(List<String> germplasmDbIds) {
     this.germplasmDbIds = germplasmDbIds;
-  }
-
-  public GermplasmSearchRequest germplasmGenus(List<String> germplasmGenus) {
-    this.germplasmGenus = germplasmGenus;
-    return this;
-  }
-
-  public GermplasmSearchRequest addGermplasmGenusItem(String germplasmGenusItem) {
-    if (this.germplasmGenus == null) {
-      this.germplasmGenus = new ArrayList<String>();
-    }
-    this.germplasmGenus.add(germplasmGenusItem);
-    return this;
-  }
-
-  /**
-   * List of Genus names to identify germplasm
-   * @return germplasmGenus
-  **/
-  @ApiModelProperty(example = "[\"Aspergillus\",\"Byssochlamys\"]", value = "List of Genus names to identify germplasm")
-  
-    public List<String> getGermplasmGenus() {
-    return germplasmGenus;
-  }
-
-  public void setGermplasmGenus(List<String> germplasmGenus) {
-    this.germplasmGenus = germplasmGenus;
   }
 
   public GermplasmSearchRequest germplasmNames(List<String> germplasmNames) {
@@ -193,10 +403,10 @@ public class GermplasmSearchRequest   {
   }
 
   /**
-   * List of human readable names to identify germplasm
+   * List of human readable names to identify germplasm to search for
    * @return germplasmNames
-  **/
-  @ApiModelProperty(example = "[\"A0000003\",\"A0000477\"]", value = "List of human readable names to identify germplasm")
+   **/
+  @Schema(example = "[\"A0000003\",\"A0000477\"]", description = "List of human readable names to identify germplasm to search for")
   
     public List<String> getGermplasmNames() {
     return germplasmNames;
@@ -222,8 +432,8 @@ public class GermplasmSearchRequest   {
   /**
    * List of Permanent Unique Identifiers to identify germplasm
    * @return germplasmPUIs
-  **/
-  @ApiModelProperty(example = "[\"http://pui.per/accession/A0000003\",\"http://pui.per/accession/A0000477\"]", value = "List of Permanent Unique Identifiers to identify germplasm")
+   **/
+  @Schema(example = "[\"http://pui.per/accession/A0000003\",\"http://pui.per/accession/A0000477\"]", description = "List of Permanent Unique Identifiers to identify germplasm")
   
     public List<String> getGermplasmPUIs() {
     return germplasmPUIs;
@@ -233,31 +443,69 @@ public class GermplasmSearchRequest   {
     this.germplasmPUIs = germplasmPUIs;
   }
 
-  public GermplasmSearchRequest germplasmSpecies(List<String> germplasmSpecies) {
-    this.germplasmSpecies = germplasmSpecies;
+  public GermplasmSearchRequest instituteCodes(List<String> instituteCodes) {
+    this.instituteCodes = instituteCodes;
     return this;
   }
 
-  public GermplasmSearchRequest addGermplasmSpeciesItem(String germplasmSpeciesItem) {
-    if (this.germplasmSpecies == null) {
-      this.germplasmSpecies = new ArrayList<String>();
+  public GermplasmSearchRequest addInstituteCodesItem(String instituteCodesItem) {
+    if (this.instituteCodes == null) {
+      this.instituteCodes = new ArrayList<String>();
     }
-    this.germplasmSpecies.add(germplasmSpeciesItem);
+    this.instituteCodes.add(instituteCodesItem);
     return this;
   }
 
   /**
-   * List of Species names to identify germplasm
-   * @return germplasmSpecies
-  **/
-  @ApiModelProperty(example = "[\"fructus\",\"fulva\"]", value = "List of Species names to identify germplasm")
+   * The code for the institute that maintains the material.  <br/> MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with \"obsolete\" codes, see \"Common formatting rules (v)\".
+   * @return instituteCodes
+   **/
+  @Schema(example = "[\"PER001\",\"NOR001\"]", description = "The code for the institute that maintains the material.  <br/> MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with \"obsolete\" codes, see \"Common formatting rules (v)\".")
   
-    public List<String> getGermplasmSpecies() {
-    return germplasmSpecies;
+    public List<String> getInstituteCodes() {
+    return instituteCodes;
   }
 
-  public void setGermplasmSpecies(List<String> germplasmSpecies) {
-    this.germplasmSpecies = germplasmSpecies;
+  public void setInstituteCodes(List<String> instituteCodes) {
+    this.instituteCodes = instituteCodes;
+  }
+
+  public GermplasmSearchRequest page(Integer page) {
+    this.page = page;
+    return this;
+  }
+
+  /**
+   * Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+   * @return page
+   **/
+  @Schema(example = "0", description = "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.")
+  
+    public Integer getPage() {
+    return page;
+  }
+
+  public void setPage(Integer page) {
+    this.page = page;
+  }
+
+  public GermplasmSearchRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+  /**
+   * The size of the pages to be returned. Default is `1000`.
+   * @return pageSize
+   **/
+  @Schema(example = "1000", description = "The size of the pages to be returned. Default is `1000`.")
+  
+    public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
   }
 
   public GermplasmSearchRequest parentDbIds(List<String> parentDbIds) {
@@ -276,8 +524,8 @@ public class GermplasmSearchRequest   {
   /**
    * Search for Germplasm with these parents
    * @return parentDbIds
-  **/
-  @ApiModelProperty(example = "[\"72c1001f\",\"7346c553\"]", value = "Search for Germplasm with these parents")
+   **/
+  @Schema(example = "[\"72c1001f\",\"7346c553\"]", description = "Search for Germplasm with these parents")
   
     public List<String> getParentDbIds() {
     return parentDbIds;
@@ -303,8 +551,8 @@ public class GermplasmSearchRequest   {
   /**
    * Search for Germplasm with these children
    * @return progenyDbIds
-  **/
-  @ApiModelProperty(example = "[\"16e16a7e\",\"ce06cf9e\"]", value = "Search for Germplasm with these children")
+   **/
+  @Schema(example = "[\"16e16a7e\",\"ce06cf9e\"]", description = "Search for Germplasm with these children")
   
     public List<String> getProgenyDbIds() {
     return progenyDbIds;
@@ -312,6 +560,87 @@ public class GermplasmSearchRequest   {
 
   public void setProgenyDbIds(List<String> progenyDbIds) {
     this.progenyDbIds = progenyDbIds;
+  }
+
+  public GermplasmSearchRequest programDbIds(List<String> programDbIds) {
+    this.programDbIds = programDbIds;
+    return this;
+  }
+
+  public GermplasmSearchRequest addProgramDbIdsItem(String programDbIdsItem) {
+    if (this.programDbIds == null) {
+      this.programDbIds = new ArrayList<String>();
+    }
+    this.programDbIds.add(programDbIdsItem);
+    return this;
+  }
+
+  /**
+   * A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.
+   * @return programDbIds
+   **/
+  @Schema(example = "[\"8f5de35b\",\"0e2d4a13\"]", description = "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.")
+  
+    public List<String> getProgramDbIds() {
+    return programDbIds;
+  }
+
+  public void setProgramDbIds(List<String> programDbIds) {
+    this.programDbIds = programDbIds;
+  }
+
+  public GermplasmSearchRequest programNames(List<String> programNames) {
+    this.programNames = programNames;
+    return this;
+  }
+
+  public GermplasmSearchRequest addProgramNamesItem(String programNamesItem) {
+    if (this.programNames == null) {
+      this.programNames = new ArrayList<String>();
+    }
+    this.programNames.add(programNamesItem);
+    return this;
+  }
+
+  /**
+   * Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.
+   * @return programNames
+   **/
+  @Schema(example = "[\"Better Breeding Program\",\"Best Breeding Program\"]", description = "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.")
+  
+    public List<String> getProgramNames() {
+    return programNames;
+  }
+
+  public void setProgramNames(List<String> programNames) {
+    this.programNames = programNames;
+  }
+
+  public GermplasmSearchRequest species(List<String> species) {
+    this.species = species;
+    return this;
+  }
+
+  public GermplasmSearchRequest addSpeciesItem(String speciesItem) {
+    if (this.species == null) {
+      this.species = new ArrayList<String>();
+    }
+    this.species.add(speciesItem);
+    return this;
+  }
+
+  /**
+   * List of Species names to identify germplasm
+   * @return species
+   **/
+  @Schema(example = "[\"fructus\",\"mays\"]", description = "List of Species names to identify germplasm")
+  
+    public List<String> getSpecies() {
+    return species;
+  }
+
+  public void setSpecies(List<String> species) {
+    this.species = species;
   }
 
   public GermplasmSearchRequest studyDbIds(List<String> studyDbIds) {
@@ -328,10 +657,10 @@ public class GermplasmSearchRequest   {
   }
 
   /**
-   * Search for Germplasm that are associated with a particular Study
+   * List of study identifiers to search for
    * @return studyDbIds
-  **/
-  @ApiModelProperty(example = "[\"4a5f9742\",\"07a6229c\"]", value = "Search for Germplasm that are associated with a particular Study")
+   **/
+  @Schema(example = "[\"cf6c4bd4\",\"691e69d6\"]", description = "List of study identifiers to search for")
   
     public List<String> getStudyDbIds() {
     return studyDbIds;
@@ -339,6 +668,33 @@ public class GermplasmSearchRequest   {
 
   public void setStudyDbIds(List<String> studyDbIds) {
     this.studyDbIds = studyDbIds;
+  }
+
+  public GermplasmSearchRequest studyNames(List<String> studyNames) {
+    this.studyNames = studyNames;
+    return this;
+  }
+
+  public GermplasmSearchRequest addStudyNamesItem(String studyNamesItem) {
+    if (this.studyNames == null) {
+      this.studyNames = new ArrayList<String>();
+    }
+    this.studyNames.add(studyNamesItem);
+    return this;
+  }
+
+  /**
+   * List of study names to filter search results
+   * @return studyNames
+   **/
+  @Schema(example = "[\"The First Bob Study 2017\",\"Wheat Yield Trial 246\"]", description = "List of study names to filter search results")
+  
+    public List<String> getStudyNames() {
+    return studyNames;
+  }
+
+  public void setStudyNames(List<String> studyNames) {
+    this.studyNames = studyNames;
   }
 
   public GermplasmSearchRequest synonyms(List<String> synonyms) {
@@ -357,8 +713,8 @@ public class GermplasmSearchRequest   {
   /**
    * List of alternative names or IDs used to reference this germplasm
    * @return synonyms
-  **/
-  @ApiModelProperty(example = "[\"variety_1\",\"2c38f9b6\"]", value = "List of alternative names or IDs used to reference this germplasm")
+   **/
+  @Schema(example = "[\"variety_1\",\"2c38f9b6\"]", description = "List of alternative names or IDs used to reference this germplasm")
   
     public List<String> getSynonyms() {
     return synonyms;
@@ -368,60 +724,61 @@ public class GermplasmSearchRequest   {
     this.synonyms = synonyms;
   }
 
-  public GermplasmSearchRequest xrefs(List<String> xrefs) {
-    this.xrefs = xrefs;
+  public GermplasmSearchRequest trialDbIds(List<String> trialDbIds) {
+    this.trialDbIds = trialDbIds;
     return this;
   }
 
-  public GermplasmSearchRequest addXrefsItem(String xrefsItem) {
-    if (this.xrefs == null) {
-      this.xrefs = new ArrayList<String>();
+  public GermplasmSearchRequest addTrialDbIdsItem(String trialDbIdsItem) {
+    if (this.trialDbIds == null) {
+      this.trialDbIds = new ArrayList<String>();
     }
-    this.xrefs.add(xrefsItem);
+    this.trialDbIds.add(trialDbIdsItem);
     return this;
   }
 
   /**
-   * Search for Germplasm by an external reference
-   * @return xrefs
-  **/
-  @ApiModelProperty(example = "[\"http://pui.per/accession/A0008766\",\"4cda72fe\"]", value = "Search for Germplasm by an external reference")
+   * The ID which uniquely identifies a trial to search for
+   * @return trialDbIds
+   **/
+  @Schema(example = "[\"d2593dc2\",\"9431a731\"]", description = "The ID which uniquely identifies a trial to search for")
   
-    public List<String> getXrefs() {
-    return xrefs;
+    public List<String> getTrialDbIds() {
+    return trialDbIds;
   }
 
-  public void setXrefs(List<String> xrefs) {
-    this.xrefs = xrefs;
+  public void setTrialDbIds(List<String> trialDbIds) {
+    this.trialDbIds = trialDbIds;
   }
 
-  public GermplasmSearchRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public GermplasmSearchRequest trialNames(List<String> trialNames) {
+    this.trialNames = trialNames;
     return this;
   }
 
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public GermplasmSearchRequest page(Integer page) {
-    this.page = page;
+  public GermplasmSearchRequest addTrialNamesItem(String trialNamesItem) {
+    if (this.trialNames == null) {
+      this.trialNames = new ArrayList<String>();
+    }
+    this.trialNames.add(trialNamesItem);
     return this;
   }
 
-  @ApiModelProperty(value = "The page number.")
-  public Integer getPage() {
-    return page;
+  /**
+   * The human readable name of a trial to search for
+   * @return trialNames
+   **/
+  @Schema(example = "[\"All Yield Trials 2016\",\"Disease Resistance Study Comparison Group\"]", description = "The human readable name of a trial to search for")
+  
+    public List<String> getTrialNames() {
+    return trialNames;
   }
 
-  public void setPage(Integer page) {
-    this.page = page;
+  public void setTrialNames(List<String> trialNames) {
+    this.trialNames = trialNames;
   }
-  
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -432,44 +789,67 @@ public class GermplasmSearchRequest   {
     }
     GermplasmSearchRequest germplasmSearchRequest = (GermplasmSearchRequest) o;
     return Objects.equals(this.accessionNumbers, germplasmSearchRequest.accessionNumbers) &&
+        Objects.equals(this.binomialNames, germplasmSearchRequest.binomialNames) &&
+        Objects.equals(this.collections, germplasmSearchRequest.collections) &&
         Objects.equals(this.commonCropNames, germplasmSearchRequest.commonCropNames) &&
+        Objects.equals(this.externalReferenceIDs, germplasmSearchRequest.externalReferenceIDs) &&
+        Objects.equals(this.externalReferenceIds, germplasmSearchRequest.externalReferenceIds) &&
+        Objects.equals(this.externalReferenceSources, germplasmSearchRequest.externalReferenceSources) &&
+        Objects.equals(this.familyCodes, germplasmSearchRequest.familyCodes) &&
+        Objects.equals(this.genus, germplasmSearchRequest.genus) &&
         Objects.equals(this.germplasmDbIds, germplasmSearchRequest.germplasmDbIds) &&
-        Objects.equals(this.germplasmGenus, germplasmSearchRequest.germplasmGenus) &&
         Objects.equals(this.germplasmNames, germplasmSearchRequest.germplasmNames) &&
         Objects.equals(this.germplasmPUIs, germplasmSearchRequest.germplasmPUIs) &&
-        Objects.equals(this.germplasmSpecies, germplasmSearchRequest.germplasmSpecies) &&
+        Objects.equals(this.instituteCodes, germplasmSearchRequest.instituteCodes) &&
+        Objects.equals(this.page, germplasmSearchRequest.page) &&
+        Objects.equals(this.pageSize, germplasmSearchRequest.pageSize) &&
         Objects.equals(this.parentDbIds, germplasmSearchRequest.parentDbIds) &&
         Objects.equals(this.progenyDbIds, germplasmSearchRequest.progenyDbIds) &&
+        Objects.equals(this.programDbIds, germplasmSearchRequest.programDbIds) &&
+        Objects.equals(this.programNames, germplasmSearchRequest.programNames) &&
+        Objects.equals(this.species, germplasmSearchRequest.species) &&
         Objects.equals(this.studyDbIds, germplasmSearchRequest.studyDbIds) &&
+        Objects.equals(this.studyNames, germplasmSearchRequest.studyNames) &&
         Objects.equals(this.synonyms, germplasmSearchRequest.synonyms) &&
-        Objects.equals(this.xrefs, germplasmSearchRequest.xrefs) && 
-        Objects.equals(this.pageSize, germplasmSearchRequest.pageSize) &&
-        Objects.equals(this.page, germplasmSearchRequest.page);
+        Objects.equals(this.trialDbIds, germplasmSearchRequest.trialDbIds) &&
+        Objects.equals(this.trialNames, germplasmSearchRequest.trialNames);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessionNumbers, commonCropNames, germplasmDbIds, germplasmGenus, germplasmNames, germplasmPUIs, germplasmSpecies, parentDbIds, progenyDbIds, studyDbIds, synonyms, xrefs);
+    return Objects.hash(accessionNumbers, binomialNames, collections, commonCropNames, externalReferenceIDs, externalReferenceIds, externalReferenceSources, familyCodes, genus, germplasmDbIds, germplasmNames, germplasmPUIs, instituteCodes, page, pageSize, parentDbIds, progenyDbIds, programDbIds, programNames, species, studyDbIds, studyNames, synonyms, trialDbIds, trialNames);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GermplasmSearchRequest {\n");    
+    sb.append("class GermplasmSearchRequest {\n");
+    
     sb.append("    accessionNumbers: ").append(toIndentedString(accessionNumbers)).append("\n");
+    sb.append("    binomialNames: ").append(toIndentedString(binomialNames)).append("\n");
+    sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    commonCropNames: ").append(toIndentedString(commonCropNames)).append("\n");
+    sb.append("    externalReferenceIDs: ").append(toIndentedString(externalReferenceIDs)).append("\n");
+    sb.append("    externalReferenceIds: ").append(toIndentedString(externalReferenceIds)).append("\n");
+    sb.append("    externalReferenceSources: ").append(toIndentedString(externalReferenceSources)).append("\n");
+    sb.append("    familyCodes: ").append(toIndentedString(familyCodes)).append("\n");
+    sb.append("    genus: ").append(toIndentedString(genus)).append("\n");
     sb.append("    germplasmDbIds: ").append(toIndentedString(germplasmDbIds)).append("\n");
-    sb.append("    germplasmGenus: ").append(toIndentedString(germplasmGenus)).append("\n");
     sb.append("    germplasmNames: ").append(toIndentedString(germplasmNames)).append("\n");
     sb.append("    germplasmPUIs: ").append(toIndentedString(germplasmPUIs)).append("\n");
-    sb.append("    germplasmSpecies: ").append(toIndentedString(germplasmSpecies)).append("\n");
+    sb.append("    instituteCodes: ").append(toIndentedString(instituteCodes)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    parentDbIds: ").append(toIndentedString(parentDbIds)).append("\n");
     sb.append("    progenyDbIds: ").append(toIndentedString(progenyDbIds)).append("\n");
+    sb.append("    programDbIds: ").append(toIndentedString(programDbIds)).append("\n");
+    sb.append("    programNames: ").append(toIndentedString(programNames)).append("\n");
+    sb.append("    species: ").append(toIndentedString(species)).append("\n");
     sb.append("    studyDbIds: ").append(toIndentedString(studyDbIds)).append("\n");
+    sb.append("    studyNames: ").append(toIndentedString(studyNames)).append("\n");
     sb.append("    synonyms: ").append(toIndentedString(synonyms)).append("\n");
-    sb.append("    xrefs: ").append(toIndentedString(xrefs)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    trialDbIds: ").append(toIndentedString(trialDbIds)).append("\n");
+    sb.append("    trialNames: ").append(toIndentedString(trialNames)).append("\n");
     sb.append("}");
     return sb.toString();
   }

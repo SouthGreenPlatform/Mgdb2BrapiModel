@@ -21,7 +21,7 @@ public class SampleNewRequest {
 
     @JsonProperty("additionalInfo")
     @Valid
-    private Map<String, String> additionalInfo = null;
+	protected Map<String, Object> additionalInfo = null;
 
     @JsonProperty("column")
     private Integer column = null;
@@ -84,14 +84,14 @@ public class SampleNewRequest {
     @JsonProperty("well")
     private String well = null;
 
-    public SampleNewRequest additionalInfo(Map<String, String> additionalInfo) {
+    public SampleNewRequest additionalInfo(Map<String, Object> additionalInfo) {
         this.additionalInfo = additionalInfo;
         return this;
     }
 
-    public SampleNewRequest putAdditionalInfoItem(String key, String additionalInfoItem) {
+    public SampleNewRequest putAdditionalInfoItem(String key, Object additionalInfoItem) {
         if (this.additionalInfo == null) {
-            this.additionalInfo = new HashMap<String, String>();
+            this.additionalInfo = new HashMap<String, Object>();
         }
         this.additionalInfo.put(key, additionalInfoItem);
         return this;
@@ -105,11 +105,11 @@ public class SampleNewRequest {
      */
     @Schema(description = "Additional arbitrary info")
 
-    public Map<String, String> getAdditionalInfo() {
+    public Map<String, Object> getAdditionalInfo() {
         return additionalInfo;
     }
 
-    public void setAdditionalInfo(Map<String, String> additionalInfo) {
+    public void setAdditionalInfo(Map<String, Object> additionalInfo) {
         this.additionalInfo = additionalInfo;
     }
 

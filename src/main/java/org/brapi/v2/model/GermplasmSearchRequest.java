@@ -37,10 +37,6 @@ public class GermplasmSearchRequest   {
   @Valid
   private List<String> commonCropNames = null;
 
-  @JsonProperty("externalReferenceIDs")
-  @Valid
-  private List<String> externalReferenceIDs = null;
-
   @JsonProperty("externalReferenceIds")
   @Valid
   private List<String> externalReferenceIds = null;
@@ -225,33 +221,6 @@ public class GermplasmSearchRequest   {
 
   public void setCommonCropNames(List<String> commonCropNames) {
     this.commonCropNames = commonCropNames;
-  }
-
-  public GermplasmSearchRequest externalReferenceIDs(List<String> externalReferenceIDs) {
-    this.externalReferenceIDs = externalReferenceIDs;
-    return this;
-  }
-
-  public GermplasmSearchRequest addExternalReferenceIDsItem(String externalReferenceIDsItem) {
-    if (this.externalReferenceIDs == null) {
-      this.externalReferenceIDs = new ArrayList<String>();
-    }
-    this.externalReferenceIDs.add(externalReferenceIDsItem);
-    return this;
-  }
-
-  /**
-   * **Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
-   * @return externalReferenceIDs
-   **/
-  @Schema(example = "[\"doi:10.155454/12341234\",\"14a19841\"]", description = "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)")
-  
-    public List<String> getExternalReferenceIDs() {
-    return externalReferenceIDs;
-  }
-
-  public void setExternalReferenceIDs(List<String> externalReferenceIDs) {
-    this.externalReferenceIDs = externalReferenceIDs;
   }
 
   public GermplasmSearchRequest externalReferenceIds(List<String> externalReferenceIds) {
@@ -792,7 +761,6 @@ public class GermplasmSearchRequest   {
         Objects.equals(this.binomialNames, germplasmSearchRequest.binomialNames) &&
         Objects.equals(this.collections, germplasmSearchRequest.collections) &&
         Objects.equals(this.commonCropNames, germplasmSearchRequest.commonCropNames) &&
-        Objects.equals(this.externalReferenceIDs, germplasmSearchRequest.externalReferenceIDs) &&
         Objects.equals(this.externalReferenceIds, germplasmSearchRequest.externalReferenceIds) &&
         Objects.equals(this.externalReferenceSources, germplasmSearchRequest.externalReferenceSources) &&
         Objects.equals(this.familyCodes, germplasmSearchRequest.familyCodes) &&
@@ -817,7 +785,7 @@ public class GermplasmSearchRequest   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessionNumbers, binomialNames, collections, commonCropNames, externalReferenceIDs, externalReferenceIds, externalReferenceSources, familyCodes, genus, germplasmDbIds, germplasmNames, germplasmPUIs, instituteCodes, page, pageSize, parentDbIds, progenyDbIds, programDbIds, programNames, species, studyDbIds, studyNames, synonyms, trialDbIds, trialNames);
+    return Objects.hash(accessionNumbers, binomialNames, collections, commonCropNames, externalReferenceIds, externalReferenceSources, familyCodes, genus, germplasmDbIds, germplasmNames, germplasmPUIs, instituteCodes, page, pageSize, parentDbIds, progenyDbIds, programDbIds, programNames, species, studyDbIds, studyNames, synonyms, trialDbIds, trialNames);
   }
 
   @Override
@@ -829,7 +797,6 @@ public class GermplasmSearchRequest   {
     sb.append("    binomialNames: ").append(toIndentedString(binomialNames)).append("\n");
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    commonCropNames: ").append(toIndentedString(commonCropNames)).append("\n");
-    sb.append("    externalReferenceIDs: ").append(toIndentedString(externalReferenceIDs)).append("\n");
     sb.append("    externalReferenceIds: ").append(toIndentedString(externalReferenceIds)).append("\n");
     sb.append("    externalReferenceSources: ").append(toIndentedString(externalReferenceSources)).append("\n");
     sb.append("    familyCodes: ").append(toIndentedString(familyCodes)).append("\n");
